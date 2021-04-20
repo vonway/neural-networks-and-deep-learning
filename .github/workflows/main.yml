@@ -45,7 +45,14 @@ jobs:
           python -m pip install --upgrade pip
           #pip install flake8 pytest
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Run APP
+      
+      - name: Run simple SGD
+        run: |
+          # stop the build if there are Python syntax errors or undefined names
+          cd src
+          python3 test1.py
+
+      - name: Run All
         run: |
           # stop the build if there are Python syntax errors or undefined names
           cd src
